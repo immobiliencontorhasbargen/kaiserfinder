@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaiserfinder v7 Test</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f6f1e7;color:#171717}
+main{max-width:580px;margin:auto;padding:18px}
+.brand{display:flex;gap:12px;align-items:center;margin-bottom:16px}
+.logo{width:44px;height:44px;border-radius:14px;background:#171717;color:#c6a15f;display:grid;place-items:center;font-weight:900;font-size:22px}
+.brand h1{margin:0;font-size:28px;letter-spacing:-.04em}
+.brand small{display:block;color:#70675d;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.card{background:#fff;border:1px solid #e6d8c1;border-radius:24px;padding:20px;margin-bottom:16px;box-shadow:0 12px 34px rgba(0,0,0,.06)}
+.step{color:#9b7737;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:800;margin-bottom:10px}
+h2{font-size:26px;line-height:1.08;letter-spacing:-.04em;margin:0 0 10px}
+p{color:#6f665a;line-height:1.45;margin:0 0 14px}
+.choice{display:block;margin:9px 0;padding:14px;border-radius:16px;background:#fbf7f1;border:1px solid #e6d8c1;font-weight:750}
+.choice input{margin-right:8px;transform:scale(1.15)}
+input.text{width:100%;padding:15px;border-radius:15px;border:1px solid #e6d8c1;background:#fbf7f1;font-size:16px;margin-bottom:10px}
+.consent{font-size:13px;line-height:1.4;color:#5d564d;margin:10px 0}
+.consent label{display:block;margin:7px 0}
+button{width:100%;border:none;border-radius:18px;padding:17px;background:#171717;color:#fff;font-size:17px;font-weight:850;margin-top:12px}
+.notice{display:none;border-radius:18px;padding:16px;margin-top:14px;font-weight:800}
+.notice.ok{background:#171717;color:#fff}
+.notice.err{background:#fff0df;color:#7a3f00;border:1px solid #e9bf87}
+pre{white-space:pre-wrap;font-family:inherit;font-size:14px;line-height:1.45;color:#eadcc3}
+.whatsapp{display:block;background:#c6a15f;color:#171717;text-align:center;text-decoration:none;border-radius:16px;padding:15px;font-weight:850;margin-top:12px}
+.footer{text-align:center;color:#70675d;font-size:12px;padding:8px 0 24px}
+</style>
+</head>
+<body>
+<main>
+<div class="brand">
+  <div class="logo">K</div>
+  <div><h1>Kaiserfinder</h1><small>immobilien contor hasbargen</small></div>
+</div>
+
+<form id="form">
+<section class="card">
+  <div class="step">Start</div>
+  <h2>Die besseren Immobilien findet man selten öffentlich.</h2>
+  <p>Moin 👋 Beantworte kurz die Fragen. Am Ende bekommst du eine sichtbare Test-Zusammenfassung.</p>
+</section>
+
+<section class="card">
+  <div class="step">1 / 5 · Lage</div>
+  <h2>Wo zieht’s dich hin?</h2>
+  <label class="choice"><input type="radio" name="ort" value="Heringsdorf">Heringsdorf</label>
+  <label class="choice"><input type="radio" name="ort" value="Ahlbeck">Ahlbeck</label>
+  <label class="choice"><input type="radio" name="ort" value="Bansin">Bansin</label>
+  <label class="choice"><input type="radio" name="ort" value="Noch offen">Noch offen</label>
+</section>
+
+<section class="card">
+  <div class="step">2 / 5 · Nutzung</div>
+  <h2>Wofür soll die Immobilie sein?</h2>
+  <label class="choice"><input type="radio" name="nutzung" value="Eigennutzung">Eigennutzung</label>
+  <label class="choice"><input type="radio" name="nutzung" value="Urlaub & Vermietung">Urlaub & Vermietung</label>
+  <label class="choice"><input type="radio" name="nutzung" value="Kapitalanlage">Kapitalanlage</label>
+  <label class="choice"><input type="radio" name="nutzung" value="Noch offen">Noch offen</label>
+</section>
+
+<section class="card">
+  <div class="step">3 / 5 · Budget</div>
+  <h2>Welcher Rahmen passt?</h2>
+  <label class="choice"><input type="radio" name="budget" value="bis 250.000 €">bis 250.000 €</label>
+  <label class="choice"><input type="radio" name="budget" value="bis 500.000 €">bis 500.000 €</label>
+  <label class="choice"><input type="radio" name="budget" value="bis 800.000 €">bis 800.000 €</label>
+  <label class="choice"><input type="radio" name="budget" value="über 800.000 €">über 800.000 €</label>
+</section>
+
+<section class="card">
+  <div class="step">4 / 5 · Größe</div>
+  <h2>Wie viel Platz brauchst du?</h2>
+  <label class="choice"><input type="radio" name="groesse" value="1 Zimmer">1 Zimmer</label>
+  <label class="choice"><input type="radio" name="groesse" value="2 Zimmer">2 Zimmer</label>
+  <label class="choice"><input type="radio" name="groesse" value="3 Zimmer">3 Zimmer</label>
+  <label class="choice"><input type="radio" name="groesse" value="Penthouse / groß">Penthouse / groß</label>
+</section>
+
+<section class="card">
+  <div class="step">5 / 5 · Timing</div>
+  <h2>Wie konkret ist dein Plan?</h2>
+  <label class="choice"><input type="radio" name="timing" value="Sofort spannend">Sofort spannend</label>
+  <label class="choice"><input type="radio" name="timing" value="Dieses Jahr">Dieses Jahr</label>
+  <label class="choice"><input type="radio" name="timing" value="Erst mal orientieren">Erst mal orientieren</label>
+  <label class="choice"><input type="radio" name="timing" value="Nur Frühmelder">Nur Frühmelder</label>
+</section>
+
+<section class="card">
+  <div class="step">Kontakt</div>
+  <h2>Wohin dürfen passende Treffer gehen?</h2>
+  <input class="text" name="name" placeholder="Name">
+  <input class="text" name="phone" placeholder="WhatsApp Nummer">
+  <input class="text" name="email" placeholder="E-Mail">
+
+  <div class="consent">
+    <label><input type="checkbox" name="whatsapp"> WhatsApp-Kontakt erlaubt</label>
+    <label><input type="checkbox" name="offmarket"> Frühmelder & Off-Market erlaubt</label>
+  </div>
+
+  <button type="button" onclick="finish()">Suchprofil erstellen</button>
+
+  <div id="error" class="notice err"></div>
+
+  <div id="success" class="notice ok">
+    <div>Perfekt 👌 Suchprofil wurde erstellt.</div>
+    <pre id="output"></pre>
+    <a id="wa" class="whatsapp" href="#">📲 Per WhatsApp übernehmen</a>
+  </div>
+</section>
+</form>
+
+<div class="footer">Kaiserbäder · Heringsdorf · Ahlbeck · Bansin</div>
+</main>
+
+<script>
+function selected(name){
+  const el=document.querySelector('input[name="'+name+'"]:checked');
+  return el ? el.value : "";
+}
+
+function finish(){
+  const error=document.getElementById("error");
+  const success=document.getElementById("success");
+  error.style.display="none";
+  success.style.display="none";
+
+  const required=["ort","nutzung","budget","groesse","timing"];
+  const missing=required.filter(x=>!selected(x));
+
+  const form=document.getElementById("form");
+  const data=new FormData(form);
+  const name=(data.get("name")||"").trim();
+  const phone=(data.get("phone")||"").trim();
+  const email=(data.get("email")||"").trim();
+  const whatsapp=data.get("whatsapp") ? "Ja" : "Nein";
+  const offmarket=data.get("offmarket") ? "Ja" : "Nein";
+
+  if(missing.length){
+    error.innerText="Bitte noch alle Fragen beantworten. Es fehlt: " + missing.join(", ");
+    error.style.display="block";
+    error.scrollIntoView({behavior:"smooth", block:"center"});
+    return;
+  }
+
+  if(!phone && !email){
+    error.innerText="Bitte mindestens WhatsApp Nummer oder E-Mail eintragen.";
+    error.style.display="block";
+    error.scrollIntoView({behavior:"smooth", block:"center"});
+    return;
+  }
+
+  let score="🟡 Warmer Käufer – passend nachfassen";
+  if(selected("timing")==="Sofort spannend" && (selected("budget")==="bis 800.000 €" || selected("budget")==="über 800.000 €")){
+    score="🔥 Heißer Käufer – persönlich melden";
+  }
+  if(selected("timing")==="Erst mal orientieren" || selected("timing")==="Nur Frühmelder"){
+    score="❄️ Frühmelder – sauber einsortieren";
+  }
+
+  const text =
+`KAISERFINDER Suchprofil
+
+Ort: ${selected("ort")}
+Nutzung: ${selected("nutzung")}
+Budget: ${selected("budget")}
+Größe: ${selected("groesse")}
+Timing: ${selected("timing")}
+
+Name: ${name || "-"}
+WhatsApp: ${phone || "-"}
+E-Mail: ${email || "-"}
+
+WhatsApp Zustimmung: ${whatsapp}
+Frühmelder Zustimmung: ${offmarket}
+
+Einschätzung: ${score}`;
+
+  document.getElementById("output").innerText=text;
+  document.getElementById("wa").href="https://wa.me/?text="+encodeURIComponent(text);
+  success.style.display="block";
+  success.scrollIntoView({behavior:"smooth", block:"start"});
+}
+</script>
+</body>
+</html>
